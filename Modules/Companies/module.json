@@ -1,0 +1,17 @@
+{
+    "name": "Companies",
+    "alias": "companies",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Companies\\Providers\\CompaniesServiceProvider",
+        "Modules\\Companies\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
