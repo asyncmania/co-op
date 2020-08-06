@@ -57,6 +57,13 @@
                                     <img src="{{asset('uploads/settings/'.config('myapp.image'))}}" alt="logo"/>
                                 </a>
                             </div>
+                        @else
+
+                        <div class="kt-login__logo">
+                             <a href="#">
+                                <img src="{{asset('assets/admin/media/bg/fmard_logo.png')}}" alt="logo"/>
+                            <a/>
+                        </div>
                         @endif
                         <div class="kt-login__signin">
                             <div class="kt-login__head">
