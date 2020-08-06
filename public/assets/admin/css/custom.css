@@ -42,9 +42,24 @@
     background-color: #02563a;
 }
 
+.kt-header__topbar {
+    margin-left: auto;
+}
+
 
 .kt-aside .kt-aside-menu {
     margin: 0;
+}
+.dataTables_wrapper .pagination .page-item.active > .page-link {
+    background: #007d53;
+    color: #ffffff;
+}
+
+.btn-brand {
+    color: #fff;
+    background-color: #007d53;
+    border-color: #007d53;
+    color: #ffffff;
 }
 @media (min-width: 1025px){
 .kt-aside__brand {

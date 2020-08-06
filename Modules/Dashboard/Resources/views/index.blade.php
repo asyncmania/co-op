@@ -18,7 +18,7 @@
                    
                     <div class="kt-widget1">
                         @include('dashboard::_widget',[
-                            'module' => 'pages',
+                            'module' => 'companies',
                         ])
                        
                     </div>
@@ -45,7 +45,7 @@
                 <div class="kt-portlet__head">
                     <div class="kt-portlet__head-label">
                         <h3 class="kt-portlet__head-title">
-                            Recent Registrations
+                            Recent Cooporatives
                         </h3>
                     </div>
                     <div class="kt-portlet__head-toolbar">

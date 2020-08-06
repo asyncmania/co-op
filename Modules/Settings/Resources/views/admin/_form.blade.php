@@ -8,50 +8,22 @@
             <a href="#tab_1" data-toggle="tab" class="nav-link active">
                 General </a>
         </li>
-        <li class="nav-item">
-            <a href="#tab_4" data-toggle="tab" class="nav-link">
-                Contact Information </a>
-        </li>
+       
         <li class="nav-item">
             <a href="#tab_2" data-toggle="tab" class="nav-link">
                 Mail Settings </a>
         </li>
-        <li class="nav-item">
-            <a href="#tab_5" data-toggle="tab" class="nav-link">
-                Payment Settings </a>
-        </li>
-        <li class="nav-item">
-            <a href="#tab_3" data-toggle="tab" class="nav-link">
-                Socials
-            </a>
-        </li>
+        
     </ul>
     <div class="tab-content">
-        <div class="tab-pane" id="tab_5">
-            {!! form_row($form->paypal_client_id) !!}
-            {!! form_row($form->paypal_client_secret) !!}
-            {!! form_row($form->stripe_secret) !!}
-            {!! form_row($form->stripe_publish_key) !!}
-        </div>
+       
         <div class="tab-pane" id="tab_4">
             {!! form_row($form->contact_email) !!}
             {!! form_row($form->phone) !!}
             {!! form_row($form->office_hours) !!}
             {!! form_row($form->address) !!}
         </div>
-        <div class="tab-pane" id="tab_3">
-            {!! form_row($form->facebook) !!}
-            {!! form_row($form->facebook_plugin) !!}
-
-            {!! form_row($form->twitter) !!}
-            {!! form_row($form->twitter_plugin) !!}
-
-            {!! form_row($form->instagram) !!}
-            {!! form_row($form->instagram_plugin) !!}
-
-            {!! form_row($form->linkedin) !!}
-            {!! form_row($form->linkedin_plugin) !!}
-        </div>
+      
         <div class="tab-pane" id="tab_2">
             <div class="form-inline">
                 <div class="form-group">

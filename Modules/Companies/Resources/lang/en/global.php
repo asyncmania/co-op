@@ -8,4 +8,5 @@ return array(
     'new'  => 'New Cooporative',
     'edit' => 'Edit Cooporative',
     'back' => 'Back to Cooporatives',
+    'widget_description' => 'Click :link to view all Cooporatives'
 );
