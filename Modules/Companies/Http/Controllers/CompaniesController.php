@@ -52,6 +52,12 @@ class CompaniesController extends BaseAdminController {
         return $this->redirect($request, $model, trans('core::global.new_record'));
     }
 
+    public function show(Company $model) {
+        $module = $model->getTable();
+        return view('companies::admin.show')
+            ->with(compact('model','module'));
+    }
+
     public function update(Company $model,FormRequest $request)
     {
         $data = $request->all();

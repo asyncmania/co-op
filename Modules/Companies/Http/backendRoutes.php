@@ -19,6 +19,10 @@ Route::group(['prefix' => 'companies'], function () {
         'as' => 'admin.companies.edit',
         'uses' => 'CompaniesController@edit'
     ]);
+    Route::get('{company}/show', [
+        'as' => 'admin.companies.show',
+        'uses' => 'CompaniesController@show'
+    ]);
     Route::post('/', [
         'as' => 'admin.companies.store',
         'uses' => 'CompaniesController@store'
