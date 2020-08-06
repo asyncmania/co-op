@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'name' => 'Companies',
+	'name' => 'Cooperatives',
 	'order' => [
 		'id' => 'asc',
 	],
