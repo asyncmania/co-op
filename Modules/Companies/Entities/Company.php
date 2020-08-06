@@ -2,6 +2,7 @@
 
 use Modules\Core\Entities\Base;
 use Modules\Core\Presenters\PresentableTrait;
+use Modules\Members\Entities\Member;
 
 class Company extends Base {
 
@@ -12,5 +13,10 @@ class Company extends Base {
     protected $guarded = ['_token','exit'];
 
     public $attachments = ['image'];
+
+
+    public function members(){
+        return $this->hasMany(Member::class);
+    }
 
 }

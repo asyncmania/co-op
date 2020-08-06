@@ -28,14 +28,23 @@
                 <div class="kt-portlet__head kt-portlet__head--lg">
                     <div class="kt-portlet__head-label">
                         <h3 class="kt-portlet__head-title">
-                            {{$model->name}}
+                        <div class="kt-portlet__head-toolbar">
+        <div class="kt-portlet__head-wrapper">
+                            <div class="kt-portlet__head-actions">
+                                            <a href="{{ route('admin.members.create')}}" class="btn btn-brand btn-sm">
+          <i class="fa fa-pen"></i>
+          Add New Member
+      </a>                                    </div>
+                              
+              </div>
+    </div>
                         </h3>
                     </div>
                     <div class="kt-portlet__head-toolbar">
                         <div class="kt-portlet__head-wrapper">
                             <div class="kt-portlet__head-actions">
                                 @include('core::admin._button-back', ['module' => $module])
-                            
+
                               
                             </div>
                         </div>
