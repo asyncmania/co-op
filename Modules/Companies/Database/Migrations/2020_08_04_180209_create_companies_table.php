@@ -18,7 +18,7 @@ class CreateCompaniesTable extends Migration
 			$table->string('name');
             $table->string('registration_number');
             $table->string('type');
-            $table->string('affiliation');
+            $table->string('affliation');
             $table->text('address');
             $table->string('banker');
             $table->string('contact_details');
