@@ -7,11 +7,13 @@ return [
 	],
 	'sidebar' => [
 		'weight' => 2,
-		'icon' => 'fa fa-file',
+		'icon' => 'fa fa-briefcase',
 	],
-	'th' => ['name','status'],
+	'th' => ['name','registration_number','contact_details','status'],
 	'columns'=>[
-            ['data'=>'name','name'=>'name'],
+						['data'=>'name','name'=>'name'],
+						['data'=>'registration_number','name'=>'registration number'],
+						['data'=>'contact_details','name'=>'contact details'],
             ['data'=>'status','name'=>'status'],
             ['data'=>'action','name'=>'action'],
      ],

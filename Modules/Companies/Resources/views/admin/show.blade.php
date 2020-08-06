@@ -42,7 +42,38 @@
                     </div>
                 </div>
                 <div class="kt-portlet__body form">
-                        
+                <table class="table table-bordered table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td class="kt-font-bold">Name</td>
+                                        <td>{{ $model->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="kt-font-bold">Registration Number</td>
+                                        <td>{{ $model->registration_number }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="kt-font-bold">Type</td>
+                                        <td>{{ $model->type }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="kt-font-bold">affiliation</td>
+                                        <td>{{ $model->affliation }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="kt-font-bold">Banker</td>
+                                        <td>{{ $model->banker }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="kt-font-bold">Address</td>
+                                        <td>{{ $model->address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="kt-font-bold">contact Detiails</td>
+                                        <td>{{ $model->contact_details }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                 </div>
             </div>
         </div>
