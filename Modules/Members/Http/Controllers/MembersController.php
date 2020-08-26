@@ -67,6 +67,15 @@ class MembersController extends BaseAdminController {
         return $this->redirect($request, $model, trans('core::global.update_record'));
     }
 
+
+    public function show($member) {
+       
+        $module = 'members';
+        $model =  $member;
+        return view('members::admin.' . "show")
+            ->with(compact('model', 'module'));
+    }
+
     public function bulkUpload()
     {
         try {

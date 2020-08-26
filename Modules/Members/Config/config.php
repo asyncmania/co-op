@@ -24,6 +24,7 @@ return [
             'store',
             'edit',
             'update',
+            'show',
             'destroy',
             'bulk_upload',
         ],
