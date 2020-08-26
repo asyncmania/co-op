@@ -37,6 +37,10 @@
                         <div class="kt-portlet__head-wrapper">
                             <div class="kt-portlet__head-actions">
                                 @include('core::admin._button-back', ['module' => $module])
+                                <a href="{{ route('admin.companies.edit_profile')}}" class="btn btn-brand btn-sm">
+                                    <i class="fa fa-pen"></i>
+                                    Edit Profile
+                                </a>
                             </div>
                         </div>
                     </div>

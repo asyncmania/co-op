@@ -18,6 +18,7 @@ class SidebarExtender extends BaseSidebarExtender implements PackageSideBarExten
             $group->weight(0);
             $group->hideHeading();
             $group->item('Dashboard',function(Item $item){
+                $item->weight(0);
                 $item->icon('flaticon2-shelter');
                 $item->route('admin.dashboard');
                $item->authorize($this->auth->hasAccess('dashboard.index'));

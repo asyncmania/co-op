@@ -15,11 +15,19 @@ class SidebarExtender extends BaseSidebarExtender implements PackageSideBarExten
     {
         $menu->group(trans('core::global.menus.content'), function (Group $group)
         {
+            $group->weight(20);
             $group->item(trans('companies::global.name'),function(Item $item){
                 $item->weight(config('companies.sidebar.weight'));
                 $item->icon(config('companies.sidebar.icon'));
                 $item->route('admin.companies.index');
                 $item->authorize($this->auth->hasAccess('companies.index'));
+            });
+
+            $group->item('Society\'s Profile',function(Item $item){
+                $item->weight(config('companies.sidebar.weight'));
+                $item->icon(config('companies.sidebar.icon'));
+                $item->route('admin.companies.show');
+                $item->authorize(is_company_role());
             });
         });
 

@@ -33,14 +33,6 @@ class SentinelGroupTableSeeder extends Seeder
             ]
         );
 
-        // Create an Vendors group
-        $groups->createModel()->create(
-            [
-                'name' => 'Artisan',
-                'slug' => 'artisan',
-            ]
-        );
-
         // Save the permissions
         $group = Sentinel::findRoleBySlug('admin');
         $group->permissions = [

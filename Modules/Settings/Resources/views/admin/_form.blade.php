@@ -16,13 +16,6 @@
         
     </ul>
     <div class="tab-content">
-       
-        <div class="tab-pane" id="tab_4">
-            {!! form_row($form->contact_email) !!}
-            {!! form_row($form->phone) !!}
-            {!! form_row($form->office_hours) !!}
-            {!! form_row($form->address) !!}
-        </div>
       
         <div class="tab-pane" id="tab_2">
             <div class="form-inline">

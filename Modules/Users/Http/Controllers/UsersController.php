@@ -55,7 +55,16 @@ class UsersController extends BaseUsersController
     {
         $data = $this->mergeRequestWithPermissions($request);
 
-        $model = $this->repository->createWithRoles($data, $request->roles, true);
+        $roles = is_array($request->roles) ? $request->roles : [$request->roles];
+
+        $data['username'] = $data['email'];
+
+        $model = $this->repository->createWithRoles($data, $roles, true);
+
+        if(!is_array($request->roles)){
+            $company = current_user_company();
+            $company->users()->attach($model->id);
+        }
 
         return $this->redirect($request, $model, trans('core::global.new_record'));
     }

@@ -12,7 +12,8 @@ class DashboardController extends Controller {
 
 	public function index()
 	{
-		return view('dashboard::index');
+	    $view = is_admin_role() ? 'index' : 'index_company';
+		return view('dashboard::'.$view);
 	}
 
 }

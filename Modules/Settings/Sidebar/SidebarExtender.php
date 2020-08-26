@@ -13,16 +13,16 @@ class SidebarExtender extends BaseSidebarExtender implements PackageSideBarExten
 {
     public function extendWith(Menu $menu)
     {
-        $menu->group(trans('core::global.menus.config'), function (Group $group)
-        {
+        $menu->group(trans('core::global.menus.config'), function (Group $group) {
             //$group->hideHeading();
             $group->weight(100);
-            $group->item('Settings',function(Item $item){
+            $group->item('Settings', function (Item $item) {
                 $item->weight(100);
                 $item->icon('fa fa-cog');
                 $item->route('admin.settings.index');
-               $item->authorize($this->auth->hasAccess('settings.index'));
+                $item->authorize($this->auth->hasAccess('settings.index'));
             });
+            $group->authorize($this->auth->hasAccess('settings.index'));
         });
 
         return $menu;

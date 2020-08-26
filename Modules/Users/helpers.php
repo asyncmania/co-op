@@ -4,7 +4,12 @@ function current_user(){
     return app('Modules\Users\Repositories\AuthenticationInterface')->check();
 }
 
-function current_user_groups($all=false){
+function role_by_name($name){
+    return app(\Modules\Users\Repositories\RoleInterface::class)->findByName($name);
+}
+
+
+function current_user_roles($all=false){
     $user = current_user();
     if($user){
         $groups = $user->groups();
@@ -13,15 +18,21 @@ function current_user_groups($all=false){
     return false;
 }
 
-function is_parent_group(){
-    $group = current_user_groups();
-    if($group && $group->name == 'Parent') return true;
+function current_user_company(){
+    $user = current_user();
+    $company = $user->companies()->first();
+    return $company;
+}
+
+function is_admin_role($user = NULL){
+    $user = empty($user) ? current_user() : $user;
+    if(!empty($user) && $user->hasRoleName('Admin')) return true;
     return false;
 }
 
-function is_admin_group(){
-    $group = current_user_groups();
-    if($group && $group->name == 'Admin') return true;
+function is_company_role($user = NULL){
+    $user = empty($user) ? current_user() : $user;
+    if(!empty($user) && $user->hasRoleName('Company')) return true;
     return false;
 }
 

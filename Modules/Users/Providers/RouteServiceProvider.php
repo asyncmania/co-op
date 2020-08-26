@@ -72,7 +72,7 @@ class RouteServiceProvider extends ServiceProvider
                 Route::get('reset/{id}/{code}', ['as' => 'reset.complete', 'uses' => 'AuthController@getResetComplete']);
                 Route::post('reset/{id}/{code}', ['as' => 'reset.complete.post', 'uses' => 'AuthController@postResetComplete']);
                 # Logout
-                Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@getLogout']);
+                Route::get('logout', ['as' => 'auth.logout', 'uses' => 'AuthController@getLogout']);
             });
 
 

@@ -24,8 +24,9 @@ class PermissionManager
     {
         $permissions = [];
         foreach ($this->module->allEnabled() as $enabledModule) {
-            $configuration = config(strtolower($enabledModule->getName()) . '.permissions');
-            if ($configuration) {
+            $role_permission = is_company_role() ? 'company_permissions' : 'permissions';
+            $configuration = config(strtolower($enabledModule->getName()) . '.' .$role_permission);
+            if (!empty($configuration)) {
                 $permissions[$enabledModule->getName()] = $configuration;
             }
         }

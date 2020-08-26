@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddIconToPagesTable extends Migration
+class CreateCompanyUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddIconToPagesTable extends Migration
      */
     public function up()
     {
-        Schema::table('pages', function (Blueprint $table) {
-			$table->string('icon')->nullabe();
-
+        Schema::create('company_user', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('company_id');
+            $table->integer('user_id');
+            $table->timestamps();
         });
     }
 
@@ -26,9 +28,6 @@ class AddIconToPagesTable extends Migration
      */
     public function down()
     {
-        Schema::table('pages', function (Blueprint $table) {
-			$table->dropColumn('icon');
-
-        });
+        Schema::dropIfExists('company_user');
     }
 }

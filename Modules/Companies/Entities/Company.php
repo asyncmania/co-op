@@ -19,4 +19,10 @@ class Company extends Base {
         return $this->hasMany(Member::class);
     }
 
+    public function users()
+    {
+        return $this->belongsToMany(config('auth.providers.users.model'));
+    }
+
+
 }

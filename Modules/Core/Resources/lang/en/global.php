@@ -11,7 +11,7 @@ return array(
     'permission_denied' => 'Permission denied. (required permission: ":permission")',
     'menus'=>[
         'main'=>'Main',
-        'content'=>'Content',
+        'content'=>'Core',
         'user'=>'Users & Roles',
         'promotions'=>'Promotions',
         'courses' => 'Courses',

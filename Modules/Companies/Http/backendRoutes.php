@@ -7,6 +7,14 @@ Route::bind('company', function ($id) {
 });
 
 Route::group(['prefix' => 'companies'], function () {
+    Route::get('edit-profile', [
+        'as' => 'admin.companies.edit_profile',
+        'uses' => 'CompaniesController@editProfile'
+    ]);
+    Route::put('edit-profile', [
+        'as' => 'admin.companies.update_profile',
+        'uses' => 'CompaniesController@updateProfile'
+    ]);
     Route::get('/', [
         'as' => 'admin.companies.index',
         'uses' => 'CompaniesController@index'
@@ -19,10 +27,16 @@ Route::group(['prefix' => 'companies'], function () {
         'as' => 'admin.companies.edit',
         'uses' => 'CompaniesController@edit'
     ]);
-    Route::get('{company}/show', [
+    Route::get('show/{company?}', [
         'as' => 'admin.companies.show',
         'uses' => 'CompaniesController@show'
     ]);
+
+    Route::get('show/{company?}', [
+        'as' => 'admin.companies.show',
+        'uses' => 'CompaniesController@show'
+    ]);
+
     Route::post('/', [
         'as' => 'admin.companies.store',
         'uses' => 'CompaniesController@store'

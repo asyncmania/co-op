@@ -22,7 +22,7 @@ class SidebarExtender extends BaseSidebarExtender implements PackageSideBarExten
                 $item->weight(50);
                 $item->icon('fa fa-list');
                 $item->route('admin.history.index');
-               $item->authorize($this->auth->hasAccess('pages.index'));
+               $item->authorize($this->auth->hasAccess('history.index'));
             });
         });
 

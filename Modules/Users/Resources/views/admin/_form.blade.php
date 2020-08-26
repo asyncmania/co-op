@@ -19,9 +19,11 @@
             <a href="#tab_1" data-toggle="tab" class="nav-link active">
                 Basic </a>
         </li>
-        <li class="nav-item">
-            <a href="#tab_2" data-toggle="tab" class="nav-link">Roles </a>
-        </li>
+        @if(is_admin_role())
+            <li class="nav-item">
+                <a href="#tab_2" data-toggle="tab" class="nav-link">Roles </a>
+            </li>
+        @endif
         <li class="nav-item">
             <a href="#tab_3" data-toggle="tab" class="nav-link">
                 Permissions </a>
@@ -52,7 +54,7 @@
                         <div class="checkbox{{ $errors->has('activated') ? ' has-error' : '' }}">
                             <input type="hidden" value="{{ $model->id === $currentUser->id ? '1' : '0' }}"
                                    name="activated"/>
-                            <?php $oldValue = (bool) $model->isActivated() ? 'checked' : ''; ?>
+                            <?php $oldValue = (bool)$model->isActivated() ? 'checked' : ''; ?>
                             <label for="activated">
                                 <input id="activated"
                                        name="activated"
@@ -79,24 +81,29 @@
                 </div>
             @endif
         </div>
-        <div class="tab-pane" id="tab_2">
-            <div class="form-group">
-                <label>Select one or more roles</label>
-                @if(!isset($id))
-                    <select multiple="" class="form-control" name="roles[]">
-                        <?php foreach ($roles as $role): ?>
-                        <option value="{{ $role->id }}">{{ $role->name }}</option>
-                        <?php endforeach; ?>
-                    </select>
-                @else
-                    <select multiple="" class="form-control" name="roles[]">
-                        <?php foreach ($roles as $role): ?>
-                        <option value="{{ $role->id }}" <?php echo $model->hasRoleId($role->id) ? 'selected' : '' ?>>{{ $role->name }}</option>
-                        <?php endforeach; ?>
-                    </select>
-                @endif
+        @if(is_admin_role())
+            <div class="tab-pane" id="tab_2">
+                <div class="form-group">
+                    <label>Select one or more roles</label>
+                    @if(!isset($id))
+                        <select class="form-control" name="roles[]">
+                            <?php foreach ($roles as $role): ?>
+                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                            <?php endforeach; ?>
+                        </select>
+                    @else
+                        <select class="form-control" name="roles[]">
+                            <?php foreach ($roles as $role): ?>
+                            <option value="{{ $role->id }}" <?php echo $model->hasRoleId($role->id) ? 'selected' : '' ?>>{{ $role->name }}</option>
+                            <?php endforeach; ?>
+                        </select>
+                    @endif
+                </div>
             </div>
-        </div>
+        @else
+           {{Form::hidden('roles', role_by_name('Company')->id)}}
+
+        @endif
         <div class="tab-pane" id="tab_3">
             @if(!isset($id))
                 @include('users::admin._permissions_create')

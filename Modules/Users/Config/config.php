@@ -25,6 +25,18 @@ return [
         'form' => 'Users\Forms\RolesForm',
     ],
 
+
+    'company_permissions' => [
+        'users' => [
+            'index',
+            'create',
+            'store',
+            'edit',
+            'update',
+            'destroy',
+        ],
+    ],
+
     'permissions' => [
         'users' => [
             'index',

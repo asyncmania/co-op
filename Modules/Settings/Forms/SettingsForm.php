@@ -9,9 +9,6 @@ class SettingsForm extends Form {
     public function buildForm()
     {
         $this
-            ->add('website_title', 'text', [
-                'label' => 'Website Title'
-            ])
             ->add('app_name', 'text', [
                 'label' => 'App Name'
             ])
@@ -23,56 +20,6 @@ class SettingsForm extends Form {
             ])
             ->add('phone', 'text', [
                 'label' => 'Phone Number'
-            ])
-            ->add('office_hours', 'text', [
-                'label' => 'Office Hours'
-            ])
-            ->add('address', 'textarea', [
-                'attr' => ['class' => 'wysihtml5 form-control', 'rows' => 4]
-            ])
-            ->add('facebook', 'text', [
-                'label' => 'Facebook Link'
-            ])
-            ->add('facebook_plugin', 'textarea', [
-                'label' => 'Facebook Plugin'
-            ])
-            ->add('twitter', 'text', [
-                'label' => 'Twitter Link'
-            ])
-            ->add('twitter_plugin', 'textarea', [
-                'label' => 'Twitter Plugin'
-            ])
-            ->add('instagram', 'text', [
-                'label' => 'Instagram Link'
-            ])
-            ->add('instagram_plugin', 'textarea', [
-                'label' => 'Instagram Plugin'
-            ])
-            ->add('linkedin', 'text', [
-                'label' => 'Linkedin Link'
-            ])
-            ->add('linkedin_plugin', 'textarea', [
-                'label' => 'Linkedin Plugin'
-            ])
-            ->add('welcome_message', 'textarea', [
-                'label' => 'Welcome Message',
-                'attr'  => ['class' => 'wysihtml5 form-control', 'rows' => 4]
-            ])
-            ->add('google_analytics', 'textarea', [
-                'attr' => ['class' => 'form-control', 'rows' => 4]
-            ])
-            ->add('tawk_plugin', 'textarea', [
-                'label'=>'Live Chat Plugin',
-                'attr' => ['class' => 'form-control', 'rows' => 4]
-            ])
-            ->add('map', 'textarea', [
-                'attr' => ['class' => 'form-control', 'rows' => 4]
-            ])
-            ->add('website_description', 'textarea', [
-                'attr' => ['class' => 'form-control', 'rows' => 4]
-            ])
-            ->add('website_keywords', 'textarea', [
-                'attr' => ['class' => 'form-control', 'rows' => 4]
             ])
             ->add('image', 'file', [
                 'label' => 'Logo'
@@ -115,26 +62,6 @@ class SettingsForm extends Form {
             ])
             ->add('mailgun_secret', 'text', [
                 'label' => 'Mailgun Secret'
-            ])
-            ->add('newsletter_msg','textarea', [
-                'label' => 'Footer Newsletter Content',
-                'attr' => ['rows'=>3]
-            ])
-            ->add('footer_about_msg','textarea', [
-                'label' => 'Footer About Us Content',
-                'attr' => ['rows'=>3]
-            ])
-            ->add('paypal_client_id', 'text', [
-                'label' => 'Paypal Client ID'
-            ])
-            ->add('paypal_client_secret', 'password', [
-                'label' => 'Paypal Secret Key'
-            ])
-            ->add('stripe_secret', 'password', [
-                'label' => 'Stripe Secret'
-            ])
-            ->add('stripe_publish_key', 'text', [
-                'label' => 'Stripe Publish Key'
             ]);
     }
 }

@@ -212,13 +212,18 @@ class SentinelUser implements UserInterface
         $model = config('auth.providers.users.model');
         //dd($model);
         $query= $model::select([
-            'id',
+            'users.id',
             'first_name',
             'last_name',
             'username',
             'email',
-            'created_at'
+            'users.created_at'
         ]);
+
+        if(!is_admin_role()){
+            $company = current_user_company();
+            if(!empty($company)) $query = $query->join('company_user','user_id','=','users.id')->where('company_id',$company->id);
+        }
 
         return $query;
     }

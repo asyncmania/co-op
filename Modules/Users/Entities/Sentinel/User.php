@@ -113,9 +113,9 @@ class User extends EloquentUser implements UserInterface {
     }
 
 
-    public function artisan()
+    public function companies()
     {
-        return $this->hasOne('Modules\Artisans\Entities\Artisan');
+        return $this->belongsToMany(\Modules\Companies\Entities\Company::class);
     }
 
     public function state()

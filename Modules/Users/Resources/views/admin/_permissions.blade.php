@@ -2,13 +2,13 @@
     <div class="col-md-12">
         <?php foreach ($permissions as $name => $value): ?>
         <div class="col-md-12">
-            <h3>{{ ucfirst($name) }}</h3>
+            <h4>{{ ucfirst($name) }}</h4>
         </div>
         <div class="clearfix"></div>
         <?php foreach ($value as $subPermissionTitle => $permissionActions): ?>
         <div class="permissionGroup">
             <div class="col-md-8">
-                <h4 class="pull-left">{{ ucfirst($subPermissionTitle) }}</h4>
+                <h5 class="pull-left">{{ ucfirst($subPermissionTitle) }}</h5>
                 <p class="pull-right" style="margin-top: 10px;">
                     <a href="" class="jsSelectAllInGroup">select all</a> |
                     <a href="" class="jsDeselectAllInGroup">deselect all</a>
@@ -29,6 +29,7 @@
             <?php endforeach; ?>
             <div class="clearfix"></div>
         </div>
+            <hr>
         <?php endforeach; ?>
         <?php endforeach; ?>
     </div>

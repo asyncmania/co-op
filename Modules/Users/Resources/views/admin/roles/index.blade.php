@@ -6,6 +6,25 @@
     {{trans($module . '::global.roles.group_name')}}
 @stop
 
+@section('page-js')
+    <script>
+        $(".delete-me").click(function () {
+            if(confirm($(this).attr('data-confirm'))){
+                $.ajax({
+                    url: $(this).attr('href'),
+                    type: 'DELETE',
+                    success: function(data){
+                        document.location.href = '{{route('admin.'.$module.'.index')}}';
+                    },
+                    data: {_token: '{{csrf_token()}}'}
+                })
+            }
+            return false;
+        });
+    </script>
+@stop
+
+
 @section('page-breadcrumbs')
     <span class="kt-subheader__breadcrumbs-separator"></span>
     <a href="javascript:;" class="kt-subheader__breadcrumbs-link">@Lang($module . '::global.roles.group_name')</a>

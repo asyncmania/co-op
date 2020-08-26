@@ -47,6 +47,8 @@ class MembersController extends BaseAdminController {
     {
         $data = $request->all();
 
+        $data['company_id'] = isset($this->company->id) ? $this->company->id : 0;
+
         $model = $this->repository->create($data);
 
         return $this->redirect($request, $model, trans('core::global.new_record'));

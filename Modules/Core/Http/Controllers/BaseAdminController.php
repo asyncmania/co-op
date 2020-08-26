@@ -12,6 +12,7 @@ abstract class BaseAdminController extends Controller {
     use FormBuilderTrait, RedirectingTrait;
 
     protected $repository;
+    protected $company;
 
     public function __construct($repository = null)
     {
@@ -19,6 +20,8 @@ abstract class BaseAdminController extends Controller {
         $this->middleware('permissions');
         $this->middleware('bindings');
         $this->repository = $repository;
+        
+        $this->company = current_user_company();
     }
 
     public function index()
