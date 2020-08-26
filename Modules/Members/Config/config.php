@@ -25,6 +25,7 @@ return [
             'edit',
             'update',
             'destroy',
+            'bulk_upload',
         ],
     ]
 ];

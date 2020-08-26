@@ -39,4 +39,8 @@ Route::group(['prefix' => 'members'], function () {
         'as' => 'admin.members.show',
         'uses' => 'MembersController@show'
     ]);
+    Route::post('bulk-upload', [
+        'as' => 'admin.members.bulk_upload',
+        'uses' => 'MembersController@bulkUpload'
+    ]);
 });

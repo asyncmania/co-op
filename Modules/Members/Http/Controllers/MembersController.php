@@ -1,7 +1,9 @@
 <?php namespace Modules\Members\Http\Controllers;
 
+use Maatwebsite\Excel\Facades\Excel;
 use Modules\Core\Http\Controllers\BaseAdminController;
 use Modules\Members\Http\Requests\FormRequest;
+use Modules\Members\Imports\MembersImport;
 use Modules\Members\Repositories\MemberInterface as Repository;
 use Modules\Members\Entities\Member;
 
@@ -63,6 +65,27 @@ class MembersController extends BaseAdminController {
         $model = $this->repository->update($data);
 
         return $this->redirect($request, $model, trans('core::global.update_record'));
+    }
+
+    public function bulkUpload()
+    {
+        try {
+            $import = new MembersImport();
+            $import->import(request()->file('file'));
+            $created = $import->getRowCreatedCount();
+            $updated = $import->getRowUpdatedCount();
+
+            return redirect()->back();
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+            $failures = $e->failures();
+
+            foreach ($failures as $failure) {
+                $failure->row(); // row that went wrong
+                $failure->attribute(); // either heading key (if using heading row concern) or column index
+                $failure->errors(); // Actual error messages from Laravel validator
+                $failure->values(); // The values of the row that has failed.
+            }
+        }
     }
 
 }

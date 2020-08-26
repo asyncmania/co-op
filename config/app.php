@@ -166,8 +166,7 @@ return [
 
         Maatwebsite\Sidebar\SidebarServiceProvider::class,
 
-        Modules\Core\Providers\MyAppServiceProvider::class,
-        Netshell\Paypal\PaypalServiceProvider::class
+        Modules\Core\Providers\MyAppServiceProvider::class
 
 
 
@@ -218,8 +217,7 @@ return [
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
-        'View' => Illuminate\Support\Facades\View::class,
-        'Paypal' => Netshell\Paypal\Facades\Paypal::class,
+        'View' => Illuminate\Support\Facades\View::class
 
     ],
 
