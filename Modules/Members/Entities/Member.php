@@ -10,7 +10,17 @@ class Member extends Base {
 
     protected $presenter = 'Modules\Members\Presenters\ModulePresenter';
 
-    protected $guarded = ['_token','exit'];
+    protected $fillable = [
+         'company_id',
+         'name',
+         'email',
+         'phone',
+         'dob',
+         'gender',
+         'occupation',
+         'address',
+         'status',
+    ];
 
     public $attachments = ['image'];
 

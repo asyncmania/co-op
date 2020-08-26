@@ -75,7 +75,11 @@ class MembersController extends BaseAdminController {
             $created = $import->getRowCreatedCount();
             $updated = $import->getRowUpdatedCount();
 
-            return redirect()->back();
+            $message = '';
+            if($created) $message .= $created.' Row(s) successfully created <br>';
+            if($updated) $message .= $updated.' Row(s) successfully updated';
+
+            return redirect()->back()->withSuccess($message);
         } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
             $failures = $e->failures();
 
