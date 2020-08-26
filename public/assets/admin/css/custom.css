@@ -89,3 +89,15 @@
 .kt-header .kt-header-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--here > .kt-menu__link .kt-menu__link-text, .kt-header .kt-header-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--active > .kt-menu__link .kt-menu__link-text, .kt-header .kt-header-menu .kt-menu__nav > .kt-menu__item:hover > .kt-menu__link .kt-menu__link-text {
     color: #007d52;
 }
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #007d52;
+    border-color: #007d52;
+}
+
+/*
+a {
+    color: #02563a !important;
+}
+*/

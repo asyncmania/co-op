@@ -35,4 +35,9 @@ Route::group(['prefix' => 'members'], function () {
         'as' => 'admin.members.destroy',
         'uses' => 'MembersController@destroy'
     ]);
+
+    Route::get('show/{member}', [
+        'as' => 'admin.members.show',
+        'uses' => 'MembersController@show'
+    ]);
 });

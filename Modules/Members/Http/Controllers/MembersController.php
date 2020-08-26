@@ -16,7 +16,7 @@ class MembersController extends BaseAdminController {
     {
         $module = $this->repository->getTable();
         $title = trans($module . '::global.group_name');
-        return view('core::admin.index')
+        return view('members::admin.index')
             ->with(compact('title', 'module'));
     }
 
