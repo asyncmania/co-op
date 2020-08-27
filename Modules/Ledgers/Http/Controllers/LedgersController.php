@@ -8,6 +8,8 @@ use Modules\Ledgers\Entities\Ledger;
 
 class LedgersController extends BaseAdminController {
 
+    protected $import = LedgersImport::class;
+
     public function __construct(Repository $repository)
     {
         parent::__construct($repository);
@@ -62,25 +64,6 @@ class LedgersController extends BaseAdminController {
         $model = $this->repository->update($data);
 
         return $this->redirect($request, $model, trans('core::global.update_record'));
-    }
-
-    public function bulkUpload()
-    {
-        try {
-            $import = new LedgersImport(request()->all());
-            $import->import(request()->file('file'));
-            $created = $import->getRowCreatedCount();
-            $updated = $import->getRowUpdatedCount();
-
-            $message = '';
-            if($created) $message .= $created.' Row(s) successfully created <br>';
-            if($updated) $message .= $updated.' Row(s) successfully updated';
-
-            return redirect()->back()->withSuccess($message);
-
-        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
-                throw $e;
-        }
     }
 
 }

@@ -3,6 +3,7 @@
 namespace Modules\Core\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Str;
 use Kris\LaravelFormBuilder\FormBuilderTrait;
 use Modules\Core\Traits\RedirectingTrait;
 use Yajra\Datatables\Datatables;
@@ -79,5 +80,25 @@ abstract class BaseAdminController extends Controller {
     {
         $this->repository->delete($model);
         session()->flash('success', 'record deleted successfully');
+    }
+
+    public function bulkUpload()
+    {
+        try {
+
+            $import = new $this->import(request()->all());
+            $import->import(request()->file('file'));
+            $created = $import->getRowCreatedCount();
+            $updated = $import->getRowUpdatedCount();
+
+            $message = '';
+            if($created) $message .= $created.' Row(s) successfully created <br>';
+            if($updated) $message .= $updated.' Row(s) successfully updated';
+
+            return redirect()->back()->withSuccess($message);
+
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+
+        }
     }
 }

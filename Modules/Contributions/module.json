@@ -1,0 +1,17 @@
+{
+    "name": "Contributions",
+    "alias": "contributions",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Contributions\\Providers\\ContributionsServiceProvider",
+        "Modules\\Contributions\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

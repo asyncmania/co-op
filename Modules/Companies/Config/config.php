@@ -21,7 +21,6 @@ return [
     'form' => 'Companies\Forms\CompaniesForm',
     'company_permissions' => [
         'companies' => [
-            'index',
             'show',
             'edit_profile',
             'update_profile',

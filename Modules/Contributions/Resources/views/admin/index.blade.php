@@ -31,7 +31,7 @@
                         return false;
                     });
 
-                    $('.tooltips').tooltip();
+                    //$('.tooltips').tooltip();
 
                 }
             });
@@ -46,9 +46,14 @@
 
 @section('main')
     <div class="kt-portlet kt-portlet--mobile">
-        @include('core::admin._porlet-title', ['module' => $module,'type'=>'create','caption'=>'index'])
+        @include($module.'::admin._porlet-title', ['module' => $module,'type'=>'create','caption'=>'index'])
         <div class="kt-portlet__body">
-            @include($module . '::admin.index')
+            @section('page-breadcrumbs')
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="javascript:;" class="kt-subheader__breadcrumbs-link">@Lang($module . '::global.name')</a>
+            @stop
+
+            {!!generate_datatable(config($module.'.th'))!!}
         </div>
     </div>
 @stop

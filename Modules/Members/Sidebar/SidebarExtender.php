@@ -13,8 +13,12 @@ class SidebarExtender extends BaseSidebarExtender implements PackageSideBarExten
 {
     public function extendWith(Menu $menu)
     {
-        $menu->group(trans('core::global.menus.content'), function (Group $group)
+        $menu->group(trans('core::global.menus.members'), function (Group $group)
         {
+            $group->weight(3);
+            if(is_admin_role()){
+                $group->hideHeading();
+            }
             $group->item(trans('members::global.name'),function(Item $item){
                 $item->weight(config('members.sidebar.weight'));
                 $item->icon(config('members.sidebar.icon'));

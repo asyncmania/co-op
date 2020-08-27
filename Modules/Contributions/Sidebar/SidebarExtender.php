@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Ledgers\Sidebar;
+namespace Modules\Contributions\Sidebar;
 
 
 use Maatwebsite\Sidebar\Group;
@@ -15,11 +15,11 @@ class SidebarExtender extends BaseSidebarExtender implements PackageSideBarExten
     {
         $menu->group(trans('core::global.menus.members'), function (Group $group)
         {
-            $group->item(trans('ledgers::global.name'),function(Item $item){
-                $item->weight(config('ledgers.sidebar.weight'));
-                $item->icon(config('ledgers.sidebar.icon'));
-                $item->route('admin.ledgers.index');
-                $item->authorize($this->auth->hasAccess('ledgers.index'));
+            $group->item(trans('contributions::global.name'),function(Item $item){
+                $item->weight(config('contributions.sidebar.weight'));
+                $item->icon(config('contributions.sidebar.icon'));
+                $item->route('admin.contributions.index');
+                $item->authorize($this->auth->hasAccess('contributions.index'));
             });
         });
 

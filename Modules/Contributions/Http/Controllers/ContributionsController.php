@@ -1,15 +1,14 @@
-<?php namespace Modules\Members\Http\Controllers;
+<?php namespace Modules\Contributions\Http\Controllers;
 
-use Maatwebsite\Excel\Facades\Excel;
+use Modules\Contributions\Imports\ContributionsImport;
 use Modules\Core\Http\Controllers\BaseAdminController;
-use Modules\Members\Http\Requests\FormRequest;
-use Modules\Members\Imports\MembersImport;
-use Modules\Members\Repositories\MemberInterface as Repository;
-use Modules\Members\Entities\Member;
+use Modules\Contributions\Http\Requests\FormRequest;
+use Modules\Contributions\Repositories\ContributionInterface as Repository;
+use Modules\Contributions\Entities\Contribution;
 
-class MembersController extends BaseAdminController {
+class ContributionsController extends BaseAdminController {
 
-    protected $import = MembersImport::class;
+    protected $import = ContributionsImport::class;
 
     public function __construct(Repository $repository)
     {
@@ -20,7 +19,7 @@ class MembersController extends BaseAdminController {
     {
         $module = $this->repository->getTable();
         $title = trans($module . '::global.group_name');
-        return view('members::admin.index')
+        return view('contributions::admin.index')
             ->with(compact('title', 'module'));
     }
 
@@ -35,7 +34,7 @@ class MembersController extends BaseAdminController {
             ->with(compact('module','form'));
     }
 
-    public function edit(Member $model)
+    public function edit(Contribution $model)
         {
             $module = $model->getTable();
             $form = $this->form(config($module.'.form'), [
@@ -51,14 +50,12 @@ class MembersController extends BaseAdminController {
     {
         $data = $request->all();
 
-        $data['company_id'] = isset($this->company->id) ? $this->company->id : 0;
-
         $model = $this->repository->create($data);
 
         return $this->redirect($request, $model, trans('core::global.new_record'));
     }
 
-    public function update(Member $model,FormRequest $request)
+    public function update(Contribution $model,FormRequest $request)
     {
         $data = $request->all();
 
@@ -67,15 +64,6 @@ class MembersController extends BaseAdminController {
         $model = $this->repository->update($data);
 
         return $this->redirect($request, $model, trans('core::global.update_record'));
-    }
-
-
-    public function show($member) {
-       
-        $module = 'members';
-        $model =  $member;
-        return view('members::admin.' . "show")
-            ->with(compact('model', 'module'));
     }
 
 }

@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="name" class="control-label">Upload Template</label>
-                    {{Form::file('file',['class'=>'form-control'])}}
+                    {{Form::file('file',['class'=>'form-control','required'])}}
                 </div>
                 <div class="form-group">
                     <a href="{{asset('uploads/templates/bulk_member_upload.xlsx')}}" target="_blank" class="text-success">

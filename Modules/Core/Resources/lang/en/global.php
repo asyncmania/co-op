@@ -11,11 +11,13 @@ return array(
     'permission_denied' => 'Permission denied. (required permission: ":permission")',
     'menus'=>[
         'main'=>'Main',
-        'content'=>'Core',
+        'content'=>'content',
+        'company'=>'society',
         'user'=>'Users & Roles',
         'promotions'=>'Promotions',
         'courses' => 'Courses',
-        'config'=>'Configuration'
+        'config'=>'Configuration',
+        'members'=>'Members',
     ],
     'error_exception_msg'=>'An error occurred, please check back later'
 );

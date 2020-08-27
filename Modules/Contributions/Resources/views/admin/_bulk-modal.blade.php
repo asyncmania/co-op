@@ -9,26 +9,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name" class="control-label">Start Date</label>
-                            {{Form::text('start_date',null,['class'=>'form-control date-picker','required'])}}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name" class="control-label">End Date</label>
-                            {{Form::text('end_date',null,['class'=>'form-control date-picker','required'])}}
-                        </div>
-                    </div>
-                </div>
                 <div class="form-group">
                     <label for="name" class="control-label">Upload Template</label>
                     {{Form::file('file',['class'=>'form-control','required'])}}
                 </div>
                 <div class="form-group">
-                    <a href="{{asset('uploads/templates/bulk_member_ledgers_upload.xlsx')}}" target="_blank" class="text-success">
+                    <a href="{{asset('uploads/templates/bulk_member_contributions_upload.xlsx')}}" target="_blank" class="text-success">
                         <i class="fa fa-download"></i> <strong>Click to Download Sample Template</strong>
                     </a>
                 </div>
