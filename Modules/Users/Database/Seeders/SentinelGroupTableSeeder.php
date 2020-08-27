@@ -28,8 +28,8 @@ class SentinelGroupTableSeeder extends Seeder
         // Create an Users group
         $groups->createModel()->create(
             [
-                'name' => 'User',
-                'slug' => 'user',
+                'name' => 'Company',
+                'slug' => 'company',
             ]
         );
 
