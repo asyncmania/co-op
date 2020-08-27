@@ -139,4 +139,24 @@ abstract class Base extends Model
             Log::error($e->getMessage());
         }
     }
+
+    public function getStartDateAttribute($value)
+    {
+        return format_date($value);
+    }
+
+    public function setStartDateAttribute($value)
+    {
+        $this->attributes['start_date'] = unformat_date($value);
+    }
+
+    public function getEndDateAttribute($value)
+    {
+        return format_date($value);
+    }
+
+    public function setEndDateAttribute($value)
+    {
+        $this->attributes['end_date'] = unformat_date($value);
+    }
 }

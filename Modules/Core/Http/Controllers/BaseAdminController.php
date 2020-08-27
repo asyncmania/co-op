@@ -53,6 +53,9 @@ abstract class BaseAdminController extends Controller {
     public function dataTable()
     {
         $id = request()->get('id');
+
+        if(!empty($this->company)) $id = $this->company->id;
+
         $model = !empty($id) ? $this->repository->getForDatatable($id) : $this->repository->getForDatatable();
 
         $model_table = $this->repository->getTable();

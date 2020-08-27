@@ -469,7 +469,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
         $model->$table()->sync($pivotData);
     }
 
-    public function getForDataTable()
+    public function getForDataTable($id = null)
     {
         //$selectArray  = config(str_replace('_','',$this->model->getTable()) . '.th');
         $selectArray = config($this->model->getTable() . '.th');

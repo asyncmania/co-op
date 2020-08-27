@@ -35,4 +35,8 @@ Route::group(['prefix' => '$LOWER_NAME$'], function () {
         'as' => 'admin.$LOWER_NAME$.destroy',
         'uses' => '$STUDLY_NAME$Controller@destroy'
     ]);
+    Route::post('bulk-upload', [
+        'as' => 'admin.$LOWER_NAME$.bulk_upload',
+        'uses' => '$STUDLY_NAME$Controller@bulkUpload'
+    ]);
 });

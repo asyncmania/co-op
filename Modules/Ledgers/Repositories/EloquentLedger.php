@@ -11,7 +11,7 @@ class EloquentLedger extends RepositoriesAbstract implements LedgerInterface
         $this->model = $model;
     }
 
-    public function getForDataTable()
+    public function getForDataTable($id = null)
     {
 
         $query = $this->model

@@ -1,14 +1,14 @@
-<?php namespace $CLASS_NAMESPACE$;
+<?php namespace Modules\Balances\Http\Controllers;
 
 use Modules\Core\Http\Controllers\BaseAdminController;
-use Modules\$NAMESPACE$\Http\Requests\FormRequest;
-use Modules\$NAMESPACE$\Repositories\$SINGULAR_MODULENAME$Interface as Repository;
-use Modules\$NAMESPACE$\Entities\$SINGULAR_MODULENAME$;
-use Modules\$NAMESPACE$\Imports\$STUDLY_NAME$Import;
+use Modules\Balances\Http\Requests\FormRequest;
+use Modules\Balances\Repositories\BalanceInterface as Repository;
+use Modules\Balances\Entities\Balance;
+use Modules\Balances\Imports\BalancesImport;
 
-class $CLASS$ extends BaseAdminController {
+class BalancesController extends BaseAdminController {
 
-    protected $import = $STUDLY_NAME$Import::class;
+    protected $import = BalancesImport::class;
 
     public function __construct(Repository $repository)
     {
@@ -19,7 +19,7 @@ class $CLASS$ extends BaseAdminController {
     {
         $module = $this->repository->getTable();
         $title = trans($module . '::global.group_name');
-        return view('core::admin.index')
+        return view($module.'::admin.index')
             ->with(compact('title', 'module'));
     }
 
@@ -34,7 +34,7 @@ class $CLASS$ extends BaseAdminController {
             ->with(compact('module','form'));
     }
 
-    public function edit($SINGULAR_MODULENAME$ $model)
+    public function edit(Balance $model)
         {
             $module = $model->getTable();
             $form = $this->form(config($module.'.form'), [
@@ -57,7 +57,7 @@ class $CLASS$ extends BaseAdminController {
         return $this->redirect($request, $model, trans('core::global.new_record'));
     }
 
-    public function update($SINGULAR_MODULENAME$ $model,FormRequest $request)
+    public function update(Balance $model,FormRequest $request)
     {
         $data = $request->all();
 

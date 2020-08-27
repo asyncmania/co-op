@@ -16,7 +16,7 @@ return [
             ['data'=>'action','name'=>'action'],
      ],
 	'form'=>'$STUDLY_NAME$\Forms\$STUDLY_NAME$Form',
-	'permissions'=>[
+	'company_permissions'=>[
 		'$LOWER_NAME$' => [
 			'index',
 			'create',
@@ -24,6 +24,7 @@ return [
 			'edit',
 			'update',
 			'destroy',
+			'bulk_upload',
 		],
 	]
 ];

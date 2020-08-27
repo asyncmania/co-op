@@ -1,9 +1,9 @@
-<?php namespace $NAMESPACE$;
+<?php namespace Modules\Balances\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\Core\Repositories\RepositoriesAbstract;
 
-class $CLASS$ extends RepositoriesAbstract implements $SINGULAR_MODULENAME$Interface
+class EloquentBalance extends RepositoriesAbstract implements BalanceInterface
 {
 
     public function __construct(Model $model)

@@ -11,9 +11,8 @@ class EloquentContribution extends RepositoriesAbstract implements ContributionI
         $this->model = $model;
     }
 
-    public function getForDataTable()
+    public function getForDataTable($id = null)
     {
-
         $query = $this->model
             ->join('members','members.id', '=', 'member_id')
             ->select([
