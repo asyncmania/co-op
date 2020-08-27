@@ -60,7 +60,53 @@ class CompaniesController extends BaseAdminController
                 'email' => $data['email'],
                 'username' => $data['email'],
                 'last_name' => $data['registration_number'],
-                'password' => $data['registration_number']
+                'password' => $data['registration_number'],
+                'permissions' => [
+                    'dashboard.index' => true,
+                    /* Users */
+                    'users.index' => true,
+                    'users.create' => true,
+                    'users.store' => true,
+                    'users.edit' => true,
+                    'users.update' => true,
+                    'users.destroy' => true,
+                    /* Balances */
+                    'balances.index' => true,
+                    'balances.create' => true,
+                    'balances.store' => true,
+                    'balances.edit' => true,
+                    'balances.update' => true,
+                    'balances.destroy' => true,
+                    'balances.bulk_upload' => true,
+                    /* Profile */
+                    'companies.show' => true,
+                    'companies.edit_profile' => true,
+                    'companies.update_profile' => true,
+                    /* Balances */
+                    'contributions.index' => true,
+                    'contributions.create' => true,
+                    'contributions.store' => true,
+                    'contributions.edit' => true,
+                    'contributions.update' => true,
+                    'contributions.destroy' => true,
+                    'contributions.bulk_upload' => true,
+                    /* Members */
+                    'members.index' => true,
+                    'members.create' => true,
+                    'members.store' => true,
+                    'members.edit' => true,
+                    'members.update' => true,
+                    'members.destroy' => true,
+                    'members.bulk_upload' => true,
+                    /* ledgers */
+                    'ledgers.index' => true,
+                    'ledgers.create' => true,
+                    'ledgers.store' => true,
+                    'ledgers.edit' => true,
+                    'ledgers.update' => true,
+                    'ledgers.destroy' => true,
+                    'ledgers.bulk_upload' => true,
+                ]
             ];
 
             $role = $role_repo->findByName('Company');

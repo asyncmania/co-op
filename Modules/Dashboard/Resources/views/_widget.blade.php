@@ -2,7 +2,7 @@
      <div class="kt-widget1__info">
         <h3 class="kt-widget1__title">@lang($module . '::global.group_name')</h3>
         <span class="kt-widget1__desc">@lang($module . '::global.widget_description',[
-            'link'=> !empty($link) ? $link : '<a href="#">here</a>'
+            'link'=> !empty($link) ? '<a href="'.$link.'">here</a>' : '<a href="#">here</a>'
            ])
         </span>
     </div>

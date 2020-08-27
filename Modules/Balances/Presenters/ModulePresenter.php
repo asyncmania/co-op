@@ -12,7 +12,7 @@ class ModulePresenter  extends Presenter
      */
     public function title()
     {
-        return $this->entity->title;
+        return config('balances.types.'.$this->entity->balance_type);
     }
 
     public function url()

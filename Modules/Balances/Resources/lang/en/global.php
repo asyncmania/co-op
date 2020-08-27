@@ -1,11 +1,11 @@
 <?php
 return array(
-    'group_name'=>'Trial Balances',
-    'name'=>'Trial Balances',
+    'group_name'=>'Balances',
+    'name'=>'Balances',
     'group_description'=>'use this section to manage all balances e.t.c',
-    'index' => 'All Trial Balances',
+    'index' => 'All Balances',
     'pages' => 'balance|balances',
-    'new'  => 'New Trial Balance',
-    'edit' => 'Edit Trial Balance',
-    'back' => 'Back to Trial Balances',
+    'new'  => 'New Balance',
+    'edit' => 'Edit Balance',
+    'back' => 'Back to Balances',
 );

@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Str;
 
-function generate_datatable($table_headings){
+function generate_datatable($table_headings,$table_id = 'data-table'){
     $str = '';
-    $str .= '<table class="table table-bordered table-hover" id="data-table"><thead><tr>';
+    $str .= '<table class="table table-bordered table-hover" id="'.$table_id.'"><thead><tr>';
     foreach($table_headings as $th){
         $th = str_replace('_',' ',$th);
         $str .= '<th>'.ucwords($th).'</th>';

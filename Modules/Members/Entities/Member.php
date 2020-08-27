@@ -1,5 +1,6 @@
 <?php namespace Modules\Members\Entities;
 
+use Illuminate\Database\Eloquent\Builder;
 use Modules\Core\Entities\Base;
 use Modules\Core\Presenters\PresentableTrait;
 use Modules\Companies\Entities\Company;
@@ -26,7 +27,12 @@ class Member extends Base {
 
 
     public function company(){
-        return $this->belongsTO(Company::class);
+        return $this->belongsTo(Company::class);
+    }
+
+    public function scopeOnline(Builder $query)
+    {
+        return $query->where('company_id', current_user_company()->id);
     }
 
 }

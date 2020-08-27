@@ -2,13 +2,9 @@
 
 namespace Modules\Balances\Imports;
 
-use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToArray;
-use Modules\Ledgers\Repositories\LedgerInterface;
-use Modules\Members\Repositories\MemberInterface;
 
 class BalancesImport implements WithHeadingRow, ToArray
 {
@@ -31,6 +27,7 @@ class BalancesImport implements WithHeadingRow, ToArray
         foreach ($rows as $row)
         {
             $row['company_id'] = current_user_company()->id;
+            $row['balance_type'] = $this->data['balance_type'];
             $row['start_date'] = $this->data['start_date'];
             $row['end_date'] = $this->data['end_date'];
             \Balances::create($row);

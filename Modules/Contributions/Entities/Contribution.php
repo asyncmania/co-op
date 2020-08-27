@@ -2,6 +2,7 @@
 
 use Modules\Core\Entities\Base;
 use Modules\Core\Presenters\PresentableTrait;
+use Modules\Members\Entities\Member;
 
 class Contribution extends Base {
 
@@ -29,6 +30,10 @@ class Contribution extends Base {
     public function setContributionDateAttribute($value)
     {
         $this->attributes['contribution_date'] = unformat_date($value);
+    }
+
+    public function member(){
+        return $this->belongsTo(Member::class);
     }
 
 }

@@ -9,6 +9,10 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div class="form-group">
+                    <label for="name" class="control-label">Type</label>
+                    {{Form::select('balance_type', config('balances.types'), null, ['class'=>'form-control','required'])}}
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -28,7 +32,8 @@
                     {{Form::file('file',['class'=>'form-control','required'])}}
                 </div>
                 <div class="form-group">
-                    <a href="{{asset('uploads/templates/bulk_company_balances_upload.xlsx')}}" target="_blank" class="text-success">
+                    <a href="{{asset('uploads/templates/bulk_company_balances_upload.xlsx')}}" target="_blank"
+                       class="text-success">
                         <i class="fa fa-download"></i> <strong>Click to Download Sample Template</strong>
                     </a>
                 </div>

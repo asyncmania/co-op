@@ -31,7 +31,7 @@
                         return false;
                     });
 
-                    $('.tooltips').tooltip();
+                   // $('.tooltips').tooltip();
 
                 }
             });

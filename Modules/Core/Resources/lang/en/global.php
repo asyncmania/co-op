@@ -12,7 +12,7 @@ return array(
     'menus'=>[
         'main'=>'Main',
         'content'=>'content',
-        'company'=>'society',
+        'company'=>'Profile',
         'user'=>'Users & Roles',
         'promotions'=>'Promotions',
         'courses' => 'Courses',

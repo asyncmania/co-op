@@ -9,6 +9,11 @@ class BalancesForm extends Form
     public function buildForm()
     {
         $this
+            ->add('balance_type', 'select', [
+                'label' => 'Balance Type',
+                'empty_value' => '-- select a type --',
+                'choices' => config('balances.types'),
+            ])
             ->add('start_date', 'text', [
                 'label' => 'Start Date',
                 'attr' => ['class'=>'form-control date-picker','placeholder'=>'dd/mm/yyyy']

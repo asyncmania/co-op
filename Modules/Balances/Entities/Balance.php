@@ -2,10 +2,11 @@
 
 use Modules\Core\Entities\Base;
 use Modules\Core\Presenters\PresentableTrait;
+use Modules\History\Traits\Historable;
 
 class Balance extends Base {
 
-    use PresentableTrait;
+    use PresentableTrait, Historable;
 
     protected $presenter = 'Modules\Balances\Presenters\ModulePresenter';
 
@@ -16,6 +17,7 @@ class Balance extends Base {
         'particulars',
         'debit_amount',
         'credit_amount',
+        'balance_type',
     ];
 
     public $attachments = ['image'];

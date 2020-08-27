@@ -5,6 +5,7 @@ use Modules\Balances\Http\Requests\FormRequest;
 use Modules\Balances\Repositories\BalanceInterface as Repository;
 use Modules\Balances\Entities\Balance;
 use Modules\Balances\Imports\BalancesImport;
+use Yajra\DataTables\DataTables;
 
 class BalancesController extends BaseAdminController {
 
@@ -66,6 +67,32 @@ class BalancesController extends BaseAdminController {
         $model = $this->repository->update($data);
 
         return $this->redirect($request, $model, trans('core::global.update_record'));
+    }
+
+    public function dataTable()
+    {
+        $id = request()->get('id');
+
+        if(!empty($this->company)) $id = $this->company->id;
+
+        $model = !empty($id) ? $this->repository->getForDatatable($id) : $this->repository->getForDatatable();
+
+        $model_table = $this->repository->getTable();
+
+        return Datatables::of($model)
+            ->addColumn('action', $model_table . '::admin._table-action')
+            ->editColumn('status', function($row) {
+                $html = '';
+                $html .= status_label($row->status);
+
+                return $html;
+            })
+            ->editColumn('balance_type', function($row) {
+                return config('balances.types.'.$row->balance_type);
+            })
+            ->escapeColumns(['action'])
+            ->removeColumn('id')
+            ->make();
     }
 
 }

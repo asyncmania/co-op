@@ -20,6 +20,12 @@ class EloquentContribution extends RepositoriesAbstract implements ContributionI
                 'members.name as member_name'
             ]);
 
+        $query = $query->whereHas('member',function($query) use($id){
+            $query->whereHas('company', function($query) use($id){
+                $query->where('id',$id);
+            });
+        });
+
         return $query;
     }
 

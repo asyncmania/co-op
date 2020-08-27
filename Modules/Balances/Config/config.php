@@ -7,10 +7,11 @@ return [
     ],
     'sidebar' => [
         'weight' => 10,
-        'icon' => 'fa fa-file',
+        'icon' => 'fa fa-list',
     ],
-    'th' => ['Start Date', 'End Date', 'Particulars', 'Debit Amount', 'Credit Amount'],
+    'th' => ['Type','Start Date', 'End Date', 'Particulars', 'Debit Amount', 'Credit Amount'],
     'columns' => [
+        ['data' => 'balance_type', 'name' => 'balance_type'],
         ['data' => 'start_date', 'name' => 'start_date'],
         ['data' => 'end_date', 'name' => 'end_date'],
         ['data' => 'particulars', 'name' => 'particulars'],
@@ -29,5 +30,10 @@ return [
             'destroy',
             'bulk_upload',
         ],
+    ],
+    'types' => [
+        'trial_balance' => 'Trial Balance',
+        'income_statement' => 'Income / Expenditure Statements',
+        'surplus_appropriation' => 'Surplus Appropriation',
     ]
 ];
