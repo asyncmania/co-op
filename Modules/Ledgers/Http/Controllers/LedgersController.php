@@ -1,14 +1,12 @@
-<?php namespace Modules\Members\Http\Controllers;
+<?php namespace Modules\Ledgers\Http\Controllers;
 
-use Maatwebsite\Excel\Facades\Excel;
 use Modules\Core\Http\Controllers\BaseAdminController;
-use Modules\Members\Http\Requests\FormRequest;
-use Modules\Members\Imports\LedgersImport;
-use Modules\Members\Imports\MembersImport;
-use Modules\Members\Repositories\MemberInterface as Repository;
-use Modules\Members\Entities\Member;
+use Modules\Ledgers\Http\Requests\FormRequest;
+use Modules\Ledgers\Imports\LedgersImport;
+use Modules\Ledgers\Repositories\LedgerInterface as Repository;
+use Modules\Ledgers\Entities\Ledger;
 
-class MembersController extends BaseAdminController {
+class LedgersController extends BaseAdminController {
 
     public function __construct(Repository $repository)
     {
@@ -19,7 +17,7 @@ class MembersController extends BaseAdminController {
     {
         $module = $this->repository->getTable();
         $title = trans($module . '::global.group_name');
-        return view('members::admin.index')
+        return view('ledgers::admin.index')
             ->with(compact('title', 'module'));
     }
 
@@ -34,7 +32,7 @@ class MembersController extends BaseAdminController {
             ->with(compact('module','form'));
     }
 
-    public function edit(Member $model)
+    public function edit(Ledger $model)
         {
             $module = $model->getTable();
             $form = $this->form(config($module.'.form'), [
@@ -50,14 +48,12 @@ class MembersController extends BaseAdminController {
     {
         $data = $request->all();
 
-        $data['company_id'] = isset($this->company->id) ? $this->company->id : 0;
-
         $model = $this->repository->create($data);
 
         return $this->redirect($request, $model, trans('core::global.new_record'));
     }
 
-    public function update(Member $model,FormRequest $request)
+    public function update(Ledger $model,FormRequest $request)
     {
         $data = $request->all();
 
@@ -68,19 +64,10 @@ class MembersController extends BaseAdminController {
         return $this->redirect($request, $model, trans('core::global.update_record'));
     }
 
-
-    public function show($member) {
-       
-        $module = 'members';
-        $model =  $member;
-        return view('members::admin.' . "show")
-            ->with(compact('model', 'module'));
-    }
-
     public function bulkUpload()
     {
         try {
-            $import = new MembersImport();
+            $import = new LedgersImport(request()->all());
             $import->import(request()->file('file'));
             $created = $import->getRowCreatedCount();
             $updated = $import->getRowUpdatedCount();
@@ -90,15 +77,9 @@ class MembersController extends BaseAdminController {
             if($updated) $message .= $updated.' Row(s) successfully updated';
 
             return redirect()->back()->withSuccess($message);
-        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
-            $failures = $e->failures();
 
-            foreach ($failures as $failure) {
-                $failure->row(); // row that went wrong
-                $failure->attribute(); // either heading key (if using heading row concern) or column index
-                $failure->errors(); // Actual error messages from Laravel validator
-                $failure->values(); // The values of the row that has failed.
-            }
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+                throw $e;
         }
     }
 

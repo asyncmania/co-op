@@ -1,0 +1,17 @@
+{
+    "name": "Ledgers",
+    "alias": "ledgers",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Ledgers\\Providers\\LedgersServiceProvider",
+        "Modules\\Ledgers\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

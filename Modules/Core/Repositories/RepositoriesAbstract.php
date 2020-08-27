@@ -258,7 +258,8 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     public function create(array $data)
     {
         // Create the model
-        $model = $this->model->fill($data);
+        $model = new $this->model;
+        $model = $model->fill($data);
 
         if ($model->save()) {
             return $model;
