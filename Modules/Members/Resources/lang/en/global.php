@@ -8,4 +8,5 @@ return array(
     'new'  => 'New Member',
     'edit' => 'Edit Member',
     'back' => 'Back to Members',
+    'widget_description' => 'Click :link to view all Members'
 );

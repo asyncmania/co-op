@@ -60,7 +60,20 @@
                     </div>
                 </div>
                 <div class="kt-portlet__body">
-                {{-- @include('orders::admin._dashboard') --}}   
+                @if($companies = Companies::latest(10))
+
+                <table class="table table-bordered table-hover">
+                        <tbody>
+                        @foreach($companies as $company)
+                                <tr>
+                                    <td class="kt-font-bold">Name</td>
+                                    <td>{{ $company->name }}</td>
+                                </tr>
+                       @endforeach        
+                    </tbody>
+                </table>
+
+                @endif
                 </div>
             </div>
         </div>
@@ -84,7 +97,7 @@
                     </div>
                 </div>
                 <div class="kt-portlet__body">
-                {{-- @include('history::admin._latest') --}}
+                <div class="alert alert-info ">No Recent Activites</div>
                 </div>
             </div>
         </div>
