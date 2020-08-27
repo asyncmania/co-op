@@ -91,7 +91,7 @@
         @endif
 
 
-        $('.date-picker').datepicker({format: 'yyyy-mm-dd', 'autoclose': true});
+        $('.date-picker').datepicker({format: 'dd/mm/yyyy', 'autoclose': true});
 
         $('.time-picker').timepicker();
 

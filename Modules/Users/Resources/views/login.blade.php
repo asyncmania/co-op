@@ -57,13 +57,13 @@
                                     <img src="{{asset('uploads/settings/'.config('myapp.image'))}}" alt="logo"/>
                                 </a>
                             </div>
-                        @else
+                        {{--@else
 
                         <div class="kt-login__logo">
                              <a href="#">
-                                <img src="{{asset('assets/admin/media/bg/fmard_logo.png')}}" alt="logo"/>
+                                <img src="{{asset('assets/πadmin/media/bg/fmard_logo.png')}}" alt="logo"/>
                             <a/>
-                        </div>
+                        </div>--}}
                         @endif
                         <div class="kt-login__signin">
                             <div class="kt-login__head">

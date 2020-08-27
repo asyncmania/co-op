@@ -20,7 +20,7 @@ function current_user_roles($all=false){
 
 function current_user_company(){
     $user = current_user();
-    $company = $user->companies()->first();
+    $company = (isset($user->companies)) ? $user->companies()->first() : null;
     return $company;
 }
 
