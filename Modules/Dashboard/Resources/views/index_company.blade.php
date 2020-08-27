@@ -17,7 +17,7 @@
                 <div class="col-md-6">
                     <div class="kt-widget1">
                         @include('dashboard::_widget',[
-                            'module' => 'members',
+                            'module' => 'members'
                         ])
                     </div>
                 </div>
@@ -54,7 +54,20 @@
                     </div>
                 </div>
                 <div class="kt-portlet__body">
-                    {{-- @include('orders::admin._dashboard') --}}
+                @if($members = Members::latest(10))
+
+                    <table class="table table-bordered table-hover">
+                            <tbody>
+                            @foreach($members as $member)
+                                    <tr>
+                                        <td class="kt-font-bold">Name</td>
+                                        <td>{{ $member->name }}</td>
+                                    </tr>
+                        @endforeach        
+                        </tbody>
+                    </table>
+
+                @endif
                 </div>
             </div>
         </div>
@@ -78,7 +91,7 @@
                     </div>
                 </div>
                 <div class="kt-portlet__body">
-                    {{-- @include('history::admin._latest') --}}
+                <div class="alert alert-info ">No Recent Activites</div>
                 </div>
             </div>
         </div>
